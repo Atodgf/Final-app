@@ -1,12 +1,8 @@
-const getTimeStamp = (): string => {
-    return new Date().toISOString();
-};
-
 const info = (namespace: string, message: string, object?: any) => {
     if (object) {
-        console.log(`[${getTimeStamp()}] [INFO] [${namespace}] ${message}`, object);
+        console.info(`[${getTimeStamp()}] [INFO] [${namespace}] ${message}`, object);
     } else {
-        console.log(`[${getTimeStamp()}] [INFO] [${namespace}] ${message}`);
+        console.info(`[${getTimeStamp()}] [INFO] [${namespace}] ${message}`);
     }
 };
 
@@ -32,6 +28,10 @@ const debug = (namespace: string, message: string, object?: any) => {
     } else {
         console.debug(`[${getTimeStamp()}] [DEBUG] [${namespace}] ${message}`);
     }
+};
+
+const getTimeStamp = (): string => {
+    return new Date().toISOString();
 };
 
 export default {
