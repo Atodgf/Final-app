@@ -1,5 +1,5 @@
-authServer/node_modules/**/*
-Frontend/node_modules/**/*
+main/authServer/node_modules/**/*
+main/Frontend/node_modules/**/*
 build/**/*
 certs/**/*
 
