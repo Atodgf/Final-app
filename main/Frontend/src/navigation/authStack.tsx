@@ -4,11 +4,12 @@ import {SignUp, Login, Splash} from '../screens'
 const {Navigator, Screen} = createStackNavigator()
 
 const AuthStack : FC = () =>{
+
     return(
         <Navigator screenOptions={{headerShown:false}}>
-            <Screen name="splash" component={Splash}/>
             <Screen name="signup" component={SignUp}/>
             <Screen name="login" component={Login}/>
+            <Screen name="splash" component={Splash}/>
         </Navigator>
     )
 }

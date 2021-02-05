@@ -1,10 +1,40 @@
-import React, {FC} from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, {FC, useState} from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import {Input, Button} from '../components'
 
-const App: FC = () =>{
+const App: FC = (props:any) =>{
+    const [username, setUsername] = useState<string | null>()
+    const [password, setPassword] = useState<string | null>()
+
+    const sendCred= async ()=>{
+        fetch("http://192.168.100.2:3000/users/login",{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                "username": username, 
+                "password":password
+         })
+        })
+        .then(res=>res.json())
+        .then(json =>{
+            console.log(json)
+        })
+     }
+
     return (
         <View style={styles.container}>
             <Text>Login Screen</Text>
+            <Input placeholder="Username" onChangeText={(text)=>{setUsername(text)}}/>
+            <Input placeholder="Password" onChangeText={(text)=>{setPassword(text)}}/>
+            <Button title="Login" onPress={()=> sendCred()}/>
+            <View style={styles.signUpText}>
+                <Text style={{marginHorizontal: 5}}>Don't Have an Account?</Text>
+                <TouchableOpacity onPress={() => props.navigation.navigate('signup')} style={{marginHorizontal: 5}}>
+                    <Text style={{color: 'rgba(81,135,200,1)'}}>Sugn Up Here</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -16,5 +46,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    signUpText: {
+        flexDirection: 'row',
+        marginVertical: 20
     }
 })
