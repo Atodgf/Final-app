@@ -22,7 +22,6 @@ const App: FC = (props:any) =>{
         })
         .then(res=>res.json())
         .then(json =>{
-            console.log(json)
             if(json.message === "Unauthorized"){
                 alert("Wrong login or password!")
             }else {
