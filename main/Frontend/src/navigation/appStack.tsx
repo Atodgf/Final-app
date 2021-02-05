@@ -6,7 +6,7 @@ const {Navigator, Screen} = createStackNavigator()
 const AppStack : FC = () =>{
     return(
         <Navigator screenOptions={{headerShown:false}}>
-            <Screen name="signup" component={Home}/>
+            <Screen name="home" component={Home}/>
         </Navigator>
     )
 }

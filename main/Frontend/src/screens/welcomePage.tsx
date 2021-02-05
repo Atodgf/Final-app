@@ -1,10 +1,13 @@
 import React, {FC} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import {Button} from '../components'
 
-const App: FC = () =>{
+const App: FC = (props:any) =>{
     return (
         <View style={styles.container}>
-            <Text>Splash Screen</Text>
+            <Text>Welcome Screen</Text>
+            <Button title="Login" onPress={()=> props.navigation.navigate('login')}/>
+            <Button title="Sign Up" onPress={()=> props.navigation.navigate('singup')}/>
         </View>
     )
 }

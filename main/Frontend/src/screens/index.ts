@@ -1,6 +1,6 @@
 import SignUp from './signup'
 import Login from './login'
 import Home from './home'
-import Splash from './splash'
+import Welcome from './welcomePage'
 
-export {SignUp, Login, Home, Splash}
+export {SignUp, Login, Home, Welcome}

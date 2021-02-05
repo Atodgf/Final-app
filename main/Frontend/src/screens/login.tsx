@@ -1,12 +1,15 @@
 import React, {FC, useState} from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import {Input, Button} from '../components'
+import { AuthContext } from '../context/context'
 
 const App: FC = (props:any) =>{
     const [username, setUsername] = useState<string | null>()
     const [password, setPassword] = useState<string | null>()
 
-    const sendCred= async ()=>{
+    const { signIn } = React.useContext(AuthContext)
+
+    const sendCred= async (props:any)=>{
         fetch("http://192.168.100.2:3000/users/login",{
             method:"POST",
             headers: {
@@ -19,8 +22,9 @@ const App: FC = (props:any) =>{
         })
         .then(res=>res.json())
         .then(json =>{
-            console.log(json)
+            signIn(json.token)
         })
+        
      }
 
     return (
@@ -28,7 +32,7 @@ const App: FC = (props:any) =>{
             <Text>Login Screen</Text>
             <Input placeholder="Username" onChangeText={(text)=>{setUsername(text)}}/>
             <Input placeholder="Password" onChangeText={(text)=>{setPassword(text)}}/>
-            <Button title="Login" onPress={()=> sendCred()}/>
+            <Button title="Login" onPress={()=> sendCred(props)}/>
             <View style={styles.signUpText}>
                 <Text style={{marginHorizontal: 5}}>Don't Have an Account?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate('signup')} style={{marginHorizontal: 5}}>
