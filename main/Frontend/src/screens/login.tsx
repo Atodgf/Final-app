@@ -40,7 +40,7 @@ const App: FC = (props:any) =>{
             <View style={styles.signUpText}>
                 <Text style={{marginHorizontal: 5}}>Don't Have an Account?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate('signup')} style={{marginHorizontal: 5}}>
-                    <Text style={{color: 'rgba(81,135,200,1)'}}>Sugn Up Here</Text>
+                    <Text style={{color: 'rgba(81,135,200,1)'}}>Sign Up Here</Text>
                 </TouchableOpacity>
             </View>
         </View>
