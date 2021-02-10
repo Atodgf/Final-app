@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import {View, TouchableOpacity, Text} from 'react-native';
+import {View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -9,14 +9,14 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {Home, Chat, Profile, Addpost, Messages} from '../screens'
 
-// const {Navigator, Screen} = createStackNavigator();
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const FeedStack = (props:any) => (
     <Stack.Navigator>
       <Stack.Screen
-        name="RN Social"
+        name="Best Social Net"
         component={Home}
         options={{
           headerTitleAlign: 'center',
@@ -74,11 +74,7 @@ const MessageStack = (props:any) => (
   );
   
 const AppStack : FC = () =>{
-    // return(
-    //     // <Navigator screenOptions={{headerShown:false}}>
-    //     //     <Screen name="home" component={Home}/>
-    //     // </Navigator>
-    // )
+    
     return (
         <Tab.Navigator
           tabBarOptions={{
@@ -89,7 +85,6 @@ const AppStack : FC = () =>{
             component={FeedStack}
             options={({route}) => ({
               tabBarLabel: 'Home',
-              // tabBarVisible: route.state && route.state.index === 0,
               tabBarIcon: ({color, size}) => (
                 <MaterialCommunityIcons
                   name="home-outline"
@@ -102,12 +97,7 @@ const AppStack : FC = () =>{
           <Tab.Screen
             name="Messages"
             component={MessageStack}
-            options={({route}) => ({
-            //   tabBarVisible: getTabBarVisibility(route),
-              // Or Hide tabbar when push!
-              // https://github.com/react-navigation/react-navigation/issues/7677
-              // tabBarVisible: route.state && route.state.index === 0,
-              // tabBarLabel: 'Home',
+            options={() => ({
               tabBarIcon: ({color, size}) => (
                 <Ionicons
                   name="chatbox-ellipses-outline"
@@ -121,7 +111,6 @@ const AppStack : FC = () =>{
             name="Profile"
             component={Profile}
             options={{
-              // tabBarLabel: 'Home',
               tabBarIcon: ({color, size}) => (
                 <Ionicons name="person-outline" color={color} size={size} />
               ),

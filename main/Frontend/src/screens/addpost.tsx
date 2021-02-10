@@ -5,14 +5,10 @@ import {Button} from '../components'
 
 const App: FC = () =>{
 
-    const { signOut } = React.useContext(AuthContext)
-    const func = ()=>{
-        signOut()
-    }
+    
     return (
         <View style={styles.container}>
             <Text>Addpost Screen</Text>
-            <Button title="Logout" onPress={()=> func()}/>
         </View>
     )
 }
