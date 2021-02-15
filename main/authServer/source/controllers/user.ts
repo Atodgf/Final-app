@@ -16,7 +16,7 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 };
 
 const register = (req: Request, res: Response, next: NextFunction) => {
-    let { username, password, email } = req.body;
+    let { username, password, email, posts } = req.body;
 
     bcryptjs.hash(password, 10, (hashError, hash) => {
         if (hashError) {
@@ -30,7 +30,8 @@ const register = (req: Request, res: Response, next: NextFunction) => {
             _id: new mongoose.Types.ObjectId(),
             email,
             username,
-            password: hash
+            password: hash,
+            posts,
         });
 
         return _user
@@ -92,6 +93,24 @@ const login = (req: Request, res: Response, next: NextFunction) => {
         });
 };
 
+const uploadPost = (req: Request, res: Response, next: NextFunction) => {
+    let { username, posts } = req.body;
+    User.find( {username} )
+        .updateOne({ posts: posts})
+        .exec()
+        .then(() => {
+            return res.status(200).json({
+                posts: "Post added"
+            });
+        })
+        .catch((error) => {
+            return res.status(500).json({
+                message: error.message,
+                error
+            });
+        });
+};
+
 const getAllUsers = (req: Request, res: Response, next: NextFunction) => {
     User.find()
         .select('-password')
@@ -110,4 +129,4 @@ const getAllUsers = (req: Request, res: Response, next: NextFunction) => {
         });
 };
 
-export default { validateToken, register, login, getAllUsers };
+export default { validateToken, register, login, getAllUsers, uploadPost };

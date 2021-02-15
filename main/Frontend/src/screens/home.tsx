@@ -9,9 +9,8 @@ import PostCard from '../components/postcard'
 const Posts = [
     {
       id: '1',
-      userName: 'Jenny Doe',
+      userName: 'User 1',
       userImg: require('../img/home.jpg'),
-      postTime: '4 mins ago',
       post:
         'Hey there, this is my test for a post of my social app in React Native.',
       postImg: require('../img/details.jpg'),
@@ -21,9 +20,8 @@ const Posts = [
     },
     {
       id: '2',
-      userName: 'John Doe',
+      userName: 'USer 2',
       userImg: require('../img/register.jpg'),
-      postTime: '2 hours ago',
       post:
         'Hey there, this is my test for a post of my social app in React Native.',
       postImg: 'none',
@@ -33,9 +31,8 @@ const Posts = [
     },
     {
       id: '3',
-      userName: 'Ken William',
+      userName: 'User 3',
       userImg: require('../img/details.jpg'),
-      postTime: '1 hours ago',
       post:
         'Hey there, this is my test for a post of my social app in React Native.',
       postImg: require('../img/register.jpg'),

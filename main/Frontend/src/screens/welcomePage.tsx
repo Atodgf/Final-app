@@ -7,7 +7,7 @@ const App: FC = (props:any) =>{
         <View style={styles.container}>
             <Text>Welcome Screen</Text>
             <Button title="Login" onPress={()=> props.navigation.navigate('login')}/>
-            <Button title="Sign Up" onPress={()=> props.navigation.navigate('singup')}/>
+            <Button title="Sign Up" onPress={()=> props.navigation.navigate('signup')}/>
         </View>
     )
 }

@@ -19,7 +19,8 @@ const App: FC = (props:any) =>{
             body:JSON.stringify({
                 "email":email,
                 "username": username, 
-                "password":password
+                "password":password,
+                "posts": []
          })
         })
         .then(res=>res.json())

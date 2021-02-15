@@ -9,7 +9,7 @@ const App: FC = (props:any) =>{
 
     const { signIn } = React.useContext(AuthContext)
 
-    const sendCred= async (props:any)=>{
+    const sendCred= async ()=>{
         fetch("http://192.168.100.2:3000/users/login",{
             method:"POST",
             headers: {
@@ -17,7 +17,7 @@ const App: FC = (props:any) =>{
             },
             body:JSON.stringify({
                 "username": username, 
-                "password":password
+                "password": password
          })
         })
         .then(res=>res.json())
@@ -36,7 +36,7 @@ const App: FC = (props:any) =>{
             <Text>Login Screen</Text>
             <Input placeholder="Username" onChangeText={(text)=>{setUsername(text)}}/>
             <Input placeholder="Password" onChangeText={(text)=>{setPassword(text)}}/>
-            <Button title="Login" onPress={()=> sendCred(props)}/>
+            <Button title="Login" onPress={()=> sendCred()}/>
             <View style={styles.signUpText}>
                 <Text style={{marginHorizontal: 5}}>Don't Have an Account?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate('signup')} style={{marginHorizontal: 5}}>

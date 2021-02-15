@@ -38,11 +38,6 @@ export const UserInfoText = styled.View`
     margin-left: 10px;
 `;
 
-export const PostTime = styled.Text`
-    font-size: 12px;
-    color: #666;
-`;
-
 export const PostText = styled.Text`
     font-size: 14px;
     padding-left: 15px;

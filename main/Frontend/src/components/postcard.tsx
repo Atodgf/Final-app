@@ -13,7 +13,6 @@ const PostCard = (props: {item :any}) => {
                     <UserImg source={props.item.userImg}/>
                     <UserInfoText>
                         <UserName>{props.item.userName}</UserName>
-                        <PostTime>{props.item.postTime}</PostTime>
                     </UserInfoText>
                 </UserInfo>
                 <PostText>{props.item.post}</PostText>
