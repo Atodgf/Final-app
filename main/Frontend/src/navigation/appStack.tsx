@@ -69,6 +69,10 @@ const MessageStack = (props:any) => (
       <Stack.Screen
         name="Chat"
         component={Chat}
+        options={({route}:any) => ({
+          title: route.params.userName,
+          headerBackTitleVisible: false
+        })}
       />
     </Stack.Navigator>
   );
