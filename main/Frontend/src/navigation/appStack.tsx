@@ -7,7 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import {Home, Chat, Profile, Addpost, Messages} from '../screens'
+import {Home, Chat, Profile, Addpost, Messages, EditProfile} from '../screens'
 
 
 const Stack = createStackNavigator();
@@ -76,6 +76,34 @@ const MessageStack = (props:any) => (
       />
     </Stack.Navigator>
   );
+
+  
+  const ProfileStack = (props:any) => (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+  
   
 const AppStack : FC = () =>{
     
@@ -113,7 +141,7 @@ const AppStack : FC = () =>{
           />
           <Tab.Screen
             name="Profile"
-            component={Profile}
+            component={ProfileStack}
             options={{
               tabBarIcon: ({color, size}) => (
                 <Ionicons name="person-outline" color={color} size={size} />

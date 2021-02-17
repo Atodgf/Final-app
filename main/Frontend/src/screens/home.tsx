@@ -25,7 +25,7 @@ const Posts = [
       post:
         'Hey there, this is my test for a post of my social app in React Native.',
       postImg: 'none',
-      liked: false,
+      liked: true,
       likes: '8',
       comments: '0',
     },

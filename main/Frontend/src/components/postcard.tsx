@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { Card, UserInfo, UserImg, UserName, UserInfoText, PostTime, PostText, PostImg, InteractionWrapper, Interaction, InteractionText, Divider} from '../styles/feedStyles'
+import { Card, UserInfo, UserImg, UserName, UserInfoText, PostText, PostImg, InteractionWrapper, Interaction, InteractionText, Divider} from '../styles/feedStyles'
 
 const PostCard = (props: {item :any}) => {
     const [isActive, setIsActive] = useState<boolean | null>(false)
     const likeIcon = props.item.liked ? 'heart' : 'heart-outline'
-    const likeIconColor = props.item.liked ? 'rgb(0, 180, 216)' : 'rgb(249, 65, 68)'
+    const likeIconColor = props.item.liked ? 'rgb(0, 180, 216)' : 'rgb(0, 180, 216)'
 
     return(
         <Card>
