@@ -49,6 +49,7 @@ const App: FC = () =>{
                         <Text style={styles.userInfoTitle}>100</Text>
                         <Text style={styles.userInfoSubTitle}>Following</Text>
                     </View>
+                    <Button title="Logout" onPress={()=> func()}/>
                 </View>
             </ScrollView>
         </SafeAreaView>
